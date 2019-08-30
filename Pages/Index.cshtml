@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@inject  ApplicationDbContext _db
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <table>
+        @foreach (Team team in Model.Teams)
+        {
+        <tr>
+            <td>@team.TeamId</td>
+            <td>@team.City</td>
+            <td>@team.Name</td>
+            <td><img src="@team.LogoURL" /></td>
+            <td>@team.HomeGames?.Count()</td>
+            <td>@team.AwayGames?.Count()</td>
+        </tr>
+        }
+    </table>
+
